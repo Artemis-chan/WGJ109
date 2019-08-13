@@ -9,24 +9,29 @@ public class Player : MonoBehaviour
     public Collider2D groundCheck;
 
     private Rigidbody2D rb;
-    
+    private Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.A)) 
-		{ 
-			rb.AddForce(new Vector3(-1f, 0f) * spd);
-			//Play animation
-		}		
-        else if (Input.GetKey(KeyCode.D)) 
-		{ 
-			rb.AddForce(new Vector3(1f, 0f) * spd); 
-			//Play animation
-		}
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddForce(new Vector3(-1f, 0f) * spd);
+            transform.localScale = new Vector3(-10f, 10f, 0);
+            anim.SetBool("run", true);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddForce(new Vector3(1f, 0f) * spd);
+            transform.localScale = new Vector3(10f, 10f, 0);
+            anim.SetBool("run", true);
+        }
+        else { anim.SetBool("run", false); }
 
         Debug.Log("Grounded: " + groundCheck.IsTouchingLayers());
 
