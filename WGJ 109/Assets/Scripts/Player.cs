@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float spd = 10f;
     public float jumpH = 5f;
     public Collider2D groundCheck;
+    public Collider2D damageCol;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -33,12 +34,15 @@ public class Player : MonoBehaviour
         }
         else { anim.SetBool("run", false); }
 
-        Debug.Log("Grounded: " + groundCheck.IsTouchingLayers());
-
         if (Input.GetKeyDown(KeyCode.Space) && groundCheck.IsTouchingLayers())
-            { 
-				rb.AddForce(new Vector3(0f, 2f) * jumpH); 
+        { 
+			rb.AddForce(new Vector3(0f, 2f) * jumpH); 
 				//Anim
-			}
+	    }
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.SetTrigger("atk");
+        }
+
     }
 }

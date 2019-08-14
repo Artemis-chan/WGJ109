@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: bgColour
+    uniqueID: 427565429
+    locked: 0
+  - name: cloud
+    uniqueID: 257361397
+    locked: 0
+  - name: house2
+    uniqueID: 243168933
+    locked: 0
+  - name: house
+    uniqueID: 2433807293
+    locked: 0
+  - name: Ground
+    uniqueID: 93049117
+    locked: 0
